@@ -1,14 +1,10 @@
 # TLabWebViewSample
 Sample project to make TLabWebView work on mobile
 
-## Screenshot
-[Watch on Youtube](https://youtu.be/q3swlSP1mRg)
-![output](https://user-images.githubusercontent.com/121733943/236464782-8fc7518c-5bde-4778-935c-1bf8850b7c9d.gif)
-
 ## Operating Environment
-OS: Android 13
-GPU: Qualcomm Adreno650
-Unity: 2021.23f1
+OS: Android 10 ~ 13  
+GPU: Qualcomm Adreno 505, 619  
+Unity: 2021.23f1  
 
 ## Getting Started
 ### Prerequisites
@@ -18,9 +14,9 @@ Unity: 2021.23f1
 - TextMeshPro
 
 ### Installing
-Clone the repository to any directory with the following command
+Clone the repository to any directory with the following command  
 ```
-git clone https://github.com/TLabAltoh/TLabWebView.git
+git clone https://github.com/TLabAltoh/TLabWebViewSample.git
 ```
 Execute the following commands in the cloned project (install necessary submodules)
 
