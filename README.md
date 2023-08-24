@@ -19,7 +19,10 @@ Unity: 2021.23f1
 - TextMeshPro
 
 ### Installing
-Clone or download the repository and use it
+Clone the repository with the following command.
+```
+git clone https://github.com/TLabAltoh/TLabWebViewSample.git
+```
 
 ### Set up
 1. Change platform to Android from Build Settings  
@@ -81,9 +84,6 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 
 ### Use from prefab
 Just add Assets/TLab/TLabWebView/TLabWebView.prefab to your scene to run WebView after building (note that the input control is configured for mobile orientation, controlled by TouchEventManager.cs)
-
-## TODO
-- Sending input (e.g. key codes) to the browser
 
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
