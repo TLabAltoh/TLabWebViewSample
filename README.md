@@ -8,24 +8,19 @@ OS: Android 10 ~ 13
 GPU: Qualcomm Adreno 505, 619  
 Unity: 2021.23f1  
 
-## Getting Started
-### Prerequisites
-- Unity 2021.3.23f1
+## Link to TLab package used
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
 - [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
+
+## Getting Started
+
+### Prerequisites
+- Unity 2021.3.23f1
 - TextMeshPro
 
 ### Installing
-Clone the repository to any directory with the following command  
-```
-git clone https://github.com/TLabAltoh/TLabWebViewSample.git
-```
-Execute the following commands in the cloned project (install necessary submodules)
+Clone or download the repository and use it
 
-```
-git submodule init
-git submodule update
-```
 ### Set up
 1. Change platform to Android from Build Settings  
 2. Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
