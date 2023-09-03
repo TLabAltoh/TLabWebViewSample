@@ -488,5 +488,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6905492866619264919, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
+      propertyPath: m_url
+      value: https://www.youtube.com/watch?v=5kDO8hLu9iI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}

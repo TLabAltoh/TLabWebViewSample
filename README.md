@@ -8,22 +8,17 @@ OS: Android 10 ~ 13
 GPU: Qualcomm Adreno 505, 619  
 Unity: 2021.23f1  
 
-## Link to TLab package used
-- [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
-- [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
-
 ## Getting Started
-
 ### Prerequisites
 - Unity 2021.3.23f1
 - TextMeshPro
-
+- [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
+- [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
 ### Installing
 Clone the repository with the following command.
 ```
 git clone https://github.com/TLabAltoh/TLabWebViewSample.git
 ```
-
 ### Set up
 1. Change platform to Android from Build Settings  
 2. Add the following symbols to Project Settings --> Player --> Other Settings (to be used at build time)  
@@ -39,12 +34,7 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 - Color Space: Linear
 - Graphics: OpenGLES3
 - Minimux API Level: 23 
-3. Open Assets/Scenes/SampleScene.unity
-4. Change any parameter of TLabWebView attached to TLabWebView/WebView from the hierarchy  
-- Url: URL to load during WebView initialization
-- Texture2D size: 512 * 512
-- WebView size: 1024 * 1024
-5. Create Assets/Plugins/Android/AndroidManifest.xml and copy the following text
+3. Create Assets/Plugins/Android/AndroidManifest.xml and copy the following text
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
@@ -80,10 +70,14 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 	<!-- For Unity-WebView -->
 </manifest>
 ```
+4. Open Assets/Scenes/SampleScene.unity
+5. Change the setting of WebView
+Setting items in TLabWebView.cs (located in TLabWebView.prefab/WebView)  
+- Url: URL to load during WebView initialization  
+- DlOption: Whether to download to the application folder or the downloads folder  
+- SubDir: In case of setting download to application folder, it is downloaded to ```{Application folder}/{files}/{SubDir}```  
+- Web (Width/Height):  Web page resolution (default 1024 * 1024)  
+- Tex (Width/Height): Texture2D resolution used within Unity (default 512 * 512)  
 6. Make sure that the canvas of Assets/TLabWebView is the screen space - camera, and attach the camera to be used when manipulating the WebView on the scene
-
-### Use from prefab
-Just add Assets/TLab/TLabWebView/TLabWebView.prefab to your scene to run WebView after building (note that the input control is configured for mobile orientation, controlled by TouchEventManager.cs)
-
 ## Link
 [Source code of the java plugin used](https://github.com/TLabAltoh/TLabWebViewPlugin)
