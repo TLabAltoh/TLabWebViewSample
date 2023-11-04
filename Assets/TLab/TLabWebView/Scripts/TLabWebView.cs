@@ -8,7 +8,7 @@ namespace TLab.Android.WebView
 	public class TLabWebView : MonoBehaviour
 	{
 		private enum DownloadOption
-        {
+		{
 			applicationFolder,
 			downloadFolder
 		}
@@ -44,7 +44,7 @@ namespace TLab.Android.WebView
 			if (Application.isEditor) return;
 
 			m_NativePlugin = new AndroidJavaObject("com.tlab.libwebview.UnityConnect");
-			m_NativePlugin.CallStatic("initialize", webWidth, webHeight, tWidth, tHeight, sWidth, sHeight, url, dlOption, subDir);
+			m_NativePlugin.Call("initialize", webWidth, webHeight, tWidth, tHeight, sWidth, sHeight, url, dlOption, subDir);
 #endif
 		}
 
@@ -53,23 +53,28 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return new byte[0];
 
-			return m_NativePlugin.CallStatic<byte[]>("getPixel");
+			// https://www.dbu9.site/post/2023-03-31-androidjnihelper-getsignature-using-byte-parameters-is-obsolete-use-sbyte-parameters-instead/
+			//sbyte[] sdata = m_NativePlugin.Call<sbyte[]>("getPixel");
+			//byte[] data = new byte[sdata.Length];
+			//Buffer.BlockCopy(sdata, 0, data, 0, sdata.Length);
+			// https://stackoverflow.com/questions/829983/how-to-convert-a-sbyte-to-byte-in-c
+			return (byte[])(Array)m_NativePlugin.Call<sbyte[]>("getPixel");
 #else
-		return null;
+			return null;
 #endif
 		}
 
 		public void CaptureHTMLSource()
-        {
+		{
 			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("capturePage");
+			m_NativePlugin.Call("capturePage");
 #endif
-        }
+		}
 
 		public void CaptureElementById(string id)
 		{
@@ -79,21 +84,57 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("captureElementById", id);
+			m_NativePlugin.Call("captureElementById", id);
 #endif
 		}
 
 		public string CurrentHTMLCaptured()
-        {
+		{
 			if (m_webViewEnable == false)
 				return null;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return null;
 
-			return m_NativePlugin.CallStatic<string>("getCaptured");
+			return m_NativePlugin.Call<string>("getCaptured");
 #else
 			return null;
+#endif
+		}
+
+		public void CaptureUserAgent()
+		{
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.Call("captureUserAgent");
+#endif
+		}
+
+		public string GetUserAgent()
+		{
+			if (m_webViewEnable == false)
+				return "";
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return "";
+
+			return m_NativePlugin.Call<string>("getUserAgent");
+#endif
+		}
+
+		public void SetUserAgent(string ua)
+		{
+			if (m_webViewEnable == false)
+				return;
+
+#if UNITY_ANDROID
+			if (Application.isEditor) return;
+
+			m_NativePlugin.Call("setUserAgent", ua);
 #endif
 		}
 
@@ -105,19 +146,19 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("loadUrl", url);
+			m_NativePlugin.Call("loadUrl", url);
 #endif
 		}
 
 		public void LoadHTML(string html, string baseURL)
-        {
+		{
 			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("loadHtml", html, baseURL);
+			m_NativePlugin.Call("loadHtml", html, baseURL);
 #endif
 		}
 
@@ -129,7 +170,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("zoomIn");
+			m_NativePlugin.Call("zoomIn");
 #endif
 		}
 
@@ -141,19 +182,19 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("zoomOut");
+			m_NativePlugin.Call("zoomOut");
 #endif
 		}
 
 		public void EvaluateJS(string js)
-        {
+		{
 			if (m_webViewEnable == false)
 				return;
 
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("evaluateJS", js);
+			m_NativePlugin.Call("evaluateJS", js);
 #endif
 		}
 
@@ -165,7 +206,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("goForward");
+			m_NativePlugin.Call("goForward");
 #endif
 		}
 
@@ -177,7 +218,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("goBack");
+			m_NativePlugin.Call("goBack");
 #endif
 		}
 
@@ -188,7 +229,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("touchEvent", x, y, eventNum);
+			m_NativePlugin.Call("touchEvent", x, y, eventNum);
 #endif
 		}
 
@@ -199,7 +240,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("keyEvent", key);
+			m_NativePlugin.Call("keyEvent", key);
 #endif
 		}
 
@@ -210,7 +251,7 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("backSpaceKey");
+			m_NativePlugin.Call("backSpaceKey");
 #endif
 		}
 
@@ -220,16 +261,16 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("setVisible", visible);
+			m_NativePlugin.Call("setVisible", visible);
 #endif
 		}
 
 		public void ClearCache(bool includeDiskFiles)
-        {
+		{
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("clearCash", includeDiskFiles);
+			m_NativePlugin.Call("clearCash", includeDiskFiles);
 #endif
 		}
 
@@ -238,16 +279,16 @@ namespace TLab.Android.WebView
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("clearCookie");
+			m_NativePlugin.Call("clearCookie");
 #endif
 		}
 
 		public void ClearHistory()
-        {
+		{
 #if UNITY_ANDROID
 			if (Application.isEditor) return;
 
-			m_NativePlugin.CallStatic("clearHistory");
+			m_NativePlugin.Call("clearHistory");
 #endif
 		}
 
