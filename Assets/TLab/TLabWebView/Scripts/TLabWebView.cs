@@ -31,6 +31,7 @@ namespace TLab.Android.WebView
 		public int TexWidth { get => m_texWidth; }
 		public int TexHeight { get => m_texHeight; }
 
+		private IntPtr m_lastPtr = IntPtr.Zero;
 		private bool m_webViewEnable;
 		private Texture2D m_webViewTexture;
 
@@ -61,6 +62,17 @@ namespace TLab.Android.WebView
 			return (byte[])(Array)m_NativePlugin.Call<sbyte[]>("getPixel");
 #else
 			return null;
+#endif
+		}
+
+		public IntPtr GetWebTexturePtr()
+		{
+#if UNITY_ANDROID
+			if (Application.isEditor) return IntPtr.Zero;
+
+			return (IntPtr)m_NativePlugin.Call<int>("getPtr");
+#else
+			return IntPtr.Zero;
 #endif
 		}
 
@@ -300,8 +312,10 @@ namespace TLab.Android.WebView
 
 #if UNITY_ANDROID
 			Init(m_webWidth, m_webHeight, m_texWidth, m_texHeight, Screen.width, Screen.height, m_url, (int)m_dlOption, m_subdir);
+
 			m_webViewTexture = new Texture2D(m_texWidth, m_texHeight, TextureFormat.ARGB32, false);
 			m_webViewTexture.name = "WebImage";
+
 			m_rawImage.texture = m_webViewTexture;
 #endif
 		}
@@ -319,7 +333,27 @@ namespace TLab.Android.WebView
 			}
 		}
 
-		private void OnDestroy()
+        public void UpdateFrameLL()
+        {
+			if (!m_webViewEnable) return;
+
+			IntPtr ptr = GetWebTexturePtr();
+
+			if(ptr != m_lastPtr)
+            {
+				m_lastPtr = ptr;
+
+				m_webViewTexture = Texture2D.CreateExternalTexture(m_texWidth, m_texHeight, TextureFormat.ARGB32, false, false, ptr);
+				m_webViewTexture.UpdateExternalTexture(ptr);
+				m_webViewTexture.name = "WebImage";
+
+				m_rawImage.texture = m_webViewTexture;
+
+				Debug.Log("[tlabwebview] create external texture: " + ptr);
+			}
+		}
+
+        private void OnDestroy()
 		{
 #if UNITY_ANDROID
 			if (m_NativePlugin == null) return;

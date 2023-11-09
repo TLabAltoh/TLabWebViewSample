@@ -19,7 +19,7 @@ namespace TLab.Android.WebView
 		void Update()
 		{
 #if UNITY_ANDROID
-			m_webView.UpdateFrame();
+			m_webView.UpdateFrameLL();
 #endif
 		}
 	}
