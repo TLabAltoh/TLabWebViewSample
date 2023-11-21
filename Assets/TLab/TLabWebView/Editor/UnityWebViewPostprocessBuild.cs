@@ -275,6 +275,13 @@ internal class AndroidManifest : AndroidXmlDocument
             ManifestElement.AppendChild(elem);
             changed = true;
         }
+        if (SelectNodes("/manifest/uses-permission[@android:name='android.permission.ACCESS_NETWORK_STATE']", nsMgr).Count == 0)
+        {
+            var elem = CreateElement("uses-permission");
+            elem.Attributes.Append(CreateAndroidAttribute("name", "android.permission.ACCESS_NETWORK_STATE"));
+            ManifestElement.AppendChild(elem);
+            changed = true;
+        }
         if (SelectNodes("/manifest/uses-permission[@android:name='android.permission.WRITE_EXTERNAL_STORAGE']", nsMgr).Count == 0)
         {
             var elem = CreateElement("uses-permission");
