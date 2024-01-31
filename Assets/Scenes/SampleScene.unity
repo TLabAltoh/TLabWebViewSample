@@ -1750,7 +1750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6905492866619264919, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
       propertyPath: m_url
-      value: http://192.168.3.5:8000
+      value: https://phet.colorado.edu/
       objectReference: {fileID: 0}
     - target: {fileID: 6960073521778781876, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
       propertyPath: m_AnchorMax.y

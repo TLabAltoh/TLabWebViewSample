@@ -8,6 +8,11 @@ Sample project to make TLabWebView work on mobile
 - Qualcomm Adreno 505, 619
 - Unity: 2021.23f1
 
+## Note
+- The policy has been changed to manage libraries in the repository as submodules.
+	- Commit ``` ff4e92a ``` If you cloned the project before, please clone the repository again.
+	- Use ``` git submodule update --init ``` to adjust the commit of the submodule to the version recommended by the project.
+
 ## Getting Started
 ### Prerequisites
 - Unity 2021.3.23f1
