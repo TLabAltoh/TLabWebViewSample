@@ -39,7 +39,7 @@ UNITYWEBVIEW_ANDROID_ENABLE_MICROPHONE
 ```
 - Color Space: Linear
 - Graphics: OpenGLES3
-- Minimux API Level: 26 
+- Minimum API Level: 26 
 - Target API Level: 30 (Unity 2021), 31 ~ 32 (Unity 2022)
 - Open Assets/Scenes/SampleScene.unity
 - Change the setting of WebView
