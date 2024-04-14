@@ -6,7 +6,7 @@ Sample project to make TLabWebView work on mobile
 ## Operating Environment
 - Android 10 ~ 13
 - Qualcomm Adreno 505, 619
-- Unity: 2021.23f1
+- Unity: 2021.3
 
 ## Document
 [document is here](https://tlabgames.gitbook.io/tlabwebview)
@@ -26,7 +26,7 @@ Sample project to make TLabWebView work on mobile
 
 ### Prerequisites
 
-- Unity 2021.3.23f1
+- Unity 2021.3 LTS
 - TextMeshPro
 - [TLabVKeyborad](https://github.com/TLabAltoh/TLabVKeyborad)
 - [TLabWebView](https://github.com/TLabAltoh/TLabWebView)
