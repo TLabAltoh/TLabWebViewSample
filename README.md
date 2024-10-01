@@ -1,7 +1,8 @@
 # TLabWebViewSample
-Sample project to make TLabWebView work on mobile
+Sample project to make [```TLabWebView```](https://github.com/TLabAltoh/TLabWebView) work on mobile
 
-[document is here](https://tlabgames.gitbook.io/tlabwebview)
+[Document is here](https://tlabgames.gitbook.io/tlabwebview)  
+[Snippets is here](https://gist.github.com/TLabAltoh/e0512b3367c25d3e1ec28ddbe95da497#file-tlabwebview-snippets-md)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
@@ -26,6 +27,9 @@ Clone the repository with the following command
 ```
 git clone https://github.com/TLabAltoh/TLabWebViewSample.git
 ```
+
+### Set up
+Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView.git)
 
 ## Sample Scene
 
