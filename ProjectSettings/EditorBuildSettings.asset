@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TLab/TLabWebView/Samples/Scenes/Mobile Sample.unity
     guid: ac777b5d5c78b423ea90ad712f4f0288
-  - enabled: 0
+  - enabled: 1
     path: Assets/TLab/TLabWebView/Samples/Scenes/Load Unload Sample.unity
     guid: 9350fa61b213b214bb44daffbbfab8e1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
