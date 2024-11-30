@@ -1558,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6721217010310261587, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
       propertyPath: m_Name
-      value: TLabWebView
+      value: Browser
       objectReference: {fileID: 0}
     - target: {fileID: 6721217010310261597, guid: cf5767a7a6501d04fb202c6ed3ef427c, type: 3}
       propertyPath: m_PresetInfoIsWorld
