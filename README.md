@@ -29,7 +29,7 @@ git clone https://github.com/TLabAltoh/TLabWebViewSample.git
 ```
 
 ### Set up
-Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView.git)
+Please see the setup section [here](https://github.com/TLabAltoh/TLabWebView?tab=readme-ov-file#set-up)
 
 ## Sample Scene
 
