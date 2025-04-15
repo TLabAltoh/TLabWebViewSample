@@ -6,6 +6,9 @@ Sample project to make [```TLabWebView```](https://github.com/TLabAltoh/TLabWebV
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tlabaltoh)
 
+> [!WARNING]
+> Note that this project only works on Android devices; it will not display web pages when run on the Unity Editor.
+
 ## Operating Environment
 - Android 10 ~ 13
 - Qualcomm Adreno 505, 619
